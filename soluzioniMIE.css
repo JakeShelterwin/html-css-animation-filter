@@ -75,3 +75,81 @@
     border-radius: 20px;
     transform: scale(1.5);
 }
+
+/* esercizio10 */
+.ex-10-icon {
+    animation: ruota 1s linear; /* se non metto linear va a scatti */
+    animation-iteration-count: infinite;
+}
+@keyframes ruota {
+    100% { transform: rotate(360deg); }
+}
+
+/* esercizio11 */
+.ex-11-icon:hover {
+    animation: telefonoADisco 1.5s linear;
+}
+@keyframes telefonoADisco {
+    0%   { transform: rotate(0);}
+    75%  { transform: rotate(275deg);} /* deg sta per degree, ruota di 275 gradi */
+    100% { transform: rotate(0); }
+}
+
+/* esercizio12 */
+.ex-12-button:hover .ex-12-top-white {
+    animation: rimbalzaBiancoTop 2s linear;
+    animation-iteration-count: infinite;
+}
+@keyframes rimbalzaBiancoTop {
+    0%   { left: 10%;}
+    50%  { left: calc(100% - 80px);}
+    100% { left: 10%; }
+}
+.ex-12-button:hover .ex-12-bottom-white {
+    animation: rimbalzaBiancoBottom 2s linear;
+    animation-iteration-count: infinite;
+}
+@keyframes rimbalzaBiancoBottom {
+    0%   { right: 10%; }
+    50%  { right: calc(100% - 80px); }
+    100% { right: 10%;}
+}
+
+/* esercizio13
+ho messo un margin left a .ex-12-button, .ex-13-button
+nell'altro css così il rettangolino in
+absolute non esce a sinistra del "well" di bootstrap
+dimensioni rettangolino:
+width: 60px;
+height: 20px; */
+.ex-13-button:hover .ex-13-top-white {
+    animation: scorriBiancoTop 2s linear;
+    animation-iteration-count: infinite;
+}
+@keyframes scorriBiancoTop {
+    /* situazione di partenza, -10px è la metà dell'altezza del rettangolo */
+    0%   { left: 10%;  top: -10px; }
+    /* nel 30% dell'animazione raggiungi il lato di destra, -30px è la metà lunghezza del rettangolo */
+    30%  { left: calc(100% - 30px); top: -10px; }
+    /* scendi la barra di destra */
+    45%  { left: calc(100% - 30px); top: calc(100% - 10px);  }
+    /* ora che sei sceso vai al lato sinistra */
+    75%  { left: -30px; top: calc(100% - 10px); }
+    /* risali la barra di sinistra */
+    90%  { left: -30px; top: -10px; }
+    /* situazione di partenza */
+    100% { left: 10%;   top: -10px; }
+}
+
+.ex-13-button:hover .ex-13-bottom-white {
+    animation: scorriBiancoBottom 2s linear;
+    animation-iteration-count: infinite;
+}
+@keyframes scorriBiancoBottom {
+    0%   {  bottom: -10px; right: 10%; }
+    30%  {  right: calc(100% - 30px); bottom: -10px; }
+    45%  {  right: calc(100% - 30px); bottom: calc(100% - 10px);  }
+    75%  {  right: -30px; bottom: calc(100% - 10px);  }
+    90%  {  right: -30px; bottom: -10px; }
+    100% {  right: 10%; bottom: -10px;   }
+}
